@@ -2,26 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --gradient: #076585;
+
+    --background: 207 58.5% 2.16%;
+    --foreground: 207 9% 96.35%;
+
+    --muted: 207 45% 8.100000000000001%;
+    --muted-foreground: 207 9% 52.7%;
+
+    --popover: 207 47% 3.5100000000000002%;
+    --popover-foreground: 207 9% 96.35%;
+
+    --card: 207 47% 3.5100000000000002%;
+    --card-foreground: 207 9% 96.35%;
+
+    --border: 207 45% 8.100000000000001%;
+    --input: 207 45% 8.100000000000001%;
+    --ring: 207 90% 27%;
+
+    --primary: 207 90% 27%;
+    --primary-foreground: 207 9% 96.35%;
+
+    --secondary: 207 45% 8.100000000000001%;
+    --secondary-foreground: 207 9% 96.35%;
+
+    --accent: 207 45% 8.100000000000001%;
+    --accent-foreground: 207 9% 96.35%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 207 9% 96.35%;
+
+    --radius: 0.5rem;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
