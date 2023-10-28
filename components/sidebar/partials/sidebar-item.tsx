@@ -23,7 +23,8 @@ const SidebarItem = ({
 
   const isRouteActive =
     (pathname === '/' && href === '/') ||
-    (pathname === href && pathname?.startsWith(`${href}`));
+    pathname === href ||
+    pathname?.startsWith(`${href}/`);
 
   return (
     <>
