@@ -63,7 +63,11 @@ const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
     <div className='mt-5 border-border bg-accent rounded-sm p-5'>
       <div className='flex items-center justify-between font-medium pl-2'>
         <p className='text-lg'>Course Title</p>
-        <Button variant='ghost' onClick={toggleEdit}>
+        <Button
+          variant='ghost'
+          className='hover:text-ring'
+          onClick={toggleEdit}
+        >
           {isEditing ? (
             <X className='h-4 w-4' />
           ) : (
