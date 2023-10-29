@@ -5,6 +5,7 @@ import { PencilRuler } from 'lucide-react';
 import { db } from '@/lib/database';
 import { IconBadge } from '@/components/ui/icon-badge';
 import TitleForm from '@/components/title-form';
+import DescriptionForm from '@/components/description-form';
 
 const CoursePage = async ({ params }: { params: { courseId: string } }) => {
   const { userId } = auth();
@@ -46,6 +47,7 @@ const CoursePage = async ({ params }: { params: { courseId: string } }) => {
             <h2 className='text-xl px-1'>Customize Your Course</h2>
           </div>
           <TitleForm courseId={course.id} initialData={course} />
+          <DescriptionForm courseId={course.id} initialData={course} />
         </div>
       </div>
     </div>
