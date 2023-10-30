@@ -6,6 +6,7 @@ import { db } from '@/lib/database';
 import { IconBadge } from '@/components/ui/icon-badge';
 import TitleForm from '@/components/title-form';
 import DescriptionForm from '@/components/description-form';
+import ImageForm from '@/components/image-form';
 
 const CoursePage = async ({ params }: { params: { courseId: string } }) => {
   const { userId } = auth();
@@ -48,6 +49,7 @@ const CoursePage = async ({ params }: { params: { courseId: string } }) => {
           </div>
           <TitleForm courseId={course.id} initialData={course} />
           <DescriptionForm courseId={course.id} initialData={course} />
+          <ImageForm courseId={course.id} initialData={course} />
         </div>
       </div>
     </div>
