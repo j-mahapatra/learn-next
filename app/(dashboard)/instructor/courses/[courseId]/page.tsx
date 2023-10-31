@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs';
-import { PencilRuler } from 'lucide-react';
+import { IndianRupee, Library, PencilRuler } from 'lucide-react';
 
 import { db } from '@/lib/database';
 import { IconBadge } from '@/components/ui/icon-badge';
@@ -8,6 +8,7 @@ import TitleForm from '@/components/title-form';
 import DescriptionForm from '@/components/description-form';
 import ImageForm from '@/components/image-form';
 import CategoryForm from '@/components/category-form';
+import PriceForm from '@/components/price-form';
 
 const CoursePage = async ({ params }: { params: { courseId: string } }) => {
   const { userId } = auth();
@@ -66,6 +67,22 @@ const CoursePage = async ({ params }: { params: { courseId: string } }) => {
               value: category.id,
             }))}
           />
+        </div>
+        <div className='space-y-5'>
+          <div>
+            <div className='flex items-center gap-x-2'>
+              <IconBadge icon={Library} />
+              <h2 className='text-xl px-1'>Course Chapters</h2>
+            </div>
+            <div>{/* TODO: Add chapters here */}</div>
+          </div>
+          <div>
+            <div className='flex items-center gap-x-2'>
+              <IconBadge icon={IndianRupee} />
+              <h2 className='text-xl px-1'>Sell Your Course</h2>
+            </div>
+            <PriceForm courseId={course.id} initialData={course} />
+          </div>
         </div>
       </div>
     </div>
