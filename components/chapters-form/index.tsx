@@ -6,7 +6,7 @@ import axios from 'axios';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { PlusSquare, X } from 'lucide-react';
+import { PlusSquare, RefreshCw, X } from 'lucide-react';
 
 import {
   Form,
@@ -20,6 +20,7 @@ import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { Chapter, Course } from '@prisma/client';
 import { Input } from '@/components/ui/input';
+import ChaptersList from '@/components/chapters-list';
 
 interface ChaptersFormProps {
   initialData: Course & { chapters: Chapter[] };
@@ -55,6 +56,25 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
 
   const toggleCreate = () => {
     setIsCreating((prev) => !prev);
+  };
+
+  const onReorder = async (updateData: { id: string; position: number }[]) => {
+    try {
+      setIsUpdating(true);
+      await axios.put(`/api/courses/${courseId}/chapters/reorder`, {
+        list: updateData,
+      });
+      toast.success('Chapters reordered successfully.');
+      router.refresh();
+    } catch (error) {
+      toast.error('Something went wrong!');
+    } finally {
+      setIsUpdating(false);
+    }
+  };
+
+  const onEdit = (id: string) => {
+    router.push(`/instructor/courses/${courseId}/chapters/${id}`);
   };
 
   return (
@@ -102,9 +122,20 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
           <p className='italic text-sm text-muted-foreground'>No Chapters</p>
         ) : (
           <>
-            {/* <div>Add Chapters here</div> */}
-            <p className='text-xs text-muted-foreground pt-5 text-center'>
-              Drag to reorder the chapters.
+            <div className='relative'>
+              {isUpdating && (
+                <div className='flex items-center justify-center absolute w-full h-full bg-background/80 top-0 right-0 rounded-sm'>
+                  <RefreshCw className='animate-spin h-6 w-6 text-ring' />
+                </div>
+              )}
+              <ChaptersList
+                onEdit={onEdit}
+                onReorder={onReorder}
+                items={initialData?.chapters || []}
+              />
+            </div>
+            <p className='text-xs text-muted-foreground pt-2 text-center'>
+              Drag & Drop to reorder the chapters.
             </p>
           </>
         )}
