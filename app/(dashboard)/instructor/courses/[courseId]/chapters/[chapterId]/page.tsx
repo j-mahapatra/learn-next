@@ -6,6 +6,7 @@ import { ArrowBigLeft, PencilRuler } from 'lucide-react';
 import { IconBadge } from '@/components/ui/icon-badge';
 
 import ChapterTitleForm from '@/components/chapter-title-form';
+import ChapterDescriptionForm from '@/components/chapter-description-form';
 
 const ChapterPage = async ({
   params,
@@ -65,6 +66,11 @@ const ChapterPage = async ({
               <h2 className='text-xl px-1'>Customize Your Chapter</h2>
             </div>
             <ChapterTitleForm
+              courseId={params.courseId}
+              initialData={chapter}
+              chapterId={params.chapterId}
+            />
+            <ChapterDescriptionForm
               courseId={params.courseId}
               initialData={chapter}
               chapterId={params.chapterId}
