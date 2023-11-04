@@ -29,7 +29,7 @@ interface ChapterDescriptionFormProps {
 
 const formSchema = z.object({
   description: z.string().min(1, {
-    message: 'Course description is a required field.',
+    message: 'Chapter description is a required field.',
   }),
 });
 
