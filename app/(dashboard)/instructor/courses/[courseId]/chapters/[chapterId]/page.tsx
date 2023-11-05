@@ -2,12 +2,13 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { db } from '@/lib/database';
 import { auth } from '@clerk/nextjs';
-import { ArrowBigLeft, PencilRuler, ScanEye } from 'lucide-react';
-import { IconBadge } from '@/components/ui/icon-badge';
+import { ArrowBigLeft, PencilRuler, ScanEye, Video } from 'lucide-react';
 
+import { IconBadge } from '@/components/ui/icon-badge';
 import ChapterTitleForm from '@/components/chapter-title-form';
 import ChapterDescriptionForm from '@/components/chapter-description-form';
 import ChapterAccessForm from '@/components/chapter-access-form';
+import ChapterVideoForm from '@/components/chapter-video-form';
 
 const ChapterPage = async ({
   params,
@@ -88,6 +89,17 @@ const ChapterPage = async ({
               chapterId={params.chapterId}
             />
           </div>
+        </div>
+        <div>
+          <div className='flex items-center gap-x-2'>
+            <IconBadge icon={Video} />
+            <h2 className='text-xl px-1'>Chapter Video</h2>
+          </div>
+          <ChapterVideoForm
+            courseId={params.courseId}
+            initialData={chapter}
+            chapterId={params.chapterId}
+          />
         </div>
       </div>
     </div>
