@@ -71,18 +71,12 @@ const ChaptersList = ({ onEdit, onReorder, items }: ChaptersListProps) => {
               >
                 {(provided) => (
                   <div
-                    className={cn(
-                      'flex items-center bg-background gap-x-2 border-border border rounded-md text-sm mb-4',
-                      chapter.isPublished && 'bg-ring'
-                    )}
+                    className='flex items-center bg-background gap-x-2 border-border border rounded-md text-sm mb-4'
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                   >
                     <div
-                      className={cn(
-                        'px-2 py-4 border-r border-r-border rounded-l-md tansition',
-                        chapter.isPublished && 'border-r-ring hover:bg-accent'
-                      )}
+                      className='px-2 py-4 border-r border-r-border rounded-l-md tansition'
                       {...provided.dragHandleProps}
                     >
                       <GripVertical className='h-4 w-4 hover:text-primary' />
