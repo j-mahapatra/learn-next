@@ -9,6 +9,7 @@ async function main() {
         { name: 'Business' },
         { name: 'Computer Science' },
         { name: 'Design' },
+        { name: 'Engineering' },
         { name: 'Health & Fitness' },
         { name: 'Lifestyle' },
         { name: 'Marketing' },
