@@ -56,6 +56,11 @@ const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
     setIsEditing((prev) => !prev);
   };
 
+  const formattedPrice = new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+  }).format(initialData?.price ?? 0);
+
   return (
     <div className='mt-5 border-border bg-accent rounded-sm p-5'>
       <div className='flex items-center justify-between font-medium pl-2'>
@@ -106,7 +111,7 @@ const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
             </form>
           </Form>
         ) : initialData.price ? (
-          <p className='italic text-sm'>&#8377; {initialData.price}</p>
+          <p className='italic text-sm'>{formattedPrice}</p>
         ) : (
           <p className='italic text-sm text-muted-foreground'>No Price</p>
         )}
