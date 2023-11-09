@@ -11,7 +11,7 @@ const NavbarRoutes = () => {
   const router = useRouter();
 
   const isInstructorPage = pathname?.startsWith('/instructor');
-  const isCoursePage = pathname?.includes('/chapter');
+  const isCoursePage = pathname?.startsWith('/courses');
   const isSearchPage = pathname === '/search';
 
   const redirectToUrl = (url: string) => {
@@ -26,7 +26,15 @@ const NavbarRoutes = () => {
         </div>
       )}
       <div className='flex gap-x-2 ml-auto items-center'>
-        {isInstructorPage || isCoursePage ? (
+        {isCoursePage ? (
+          <Button
+            variant='outline'
+            size='sm'
+            onClick={() => redirectToUrl('/')}
+          >
+            Back to Homepage
+          </Button>
+        ) : isInstructorPage ? (
           <Button
             variant='outline'
             size='sm'
