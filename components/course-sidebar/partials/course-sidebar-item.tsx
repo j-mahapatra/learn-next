@@ -32,7 +32,7 @@ const CourseSidebarItem = ({
   };
 
   return (
-    <>
+    <div className='flex'>
       <button
         className={cn(
           'group flex w-full py-3 items-center gap-x-3 text-sm font-normal pl-6 transition-all',
@@ -57,7 +57,7 @@ const CourseSidebarItem = ({
           isActive ? 'opacity-100' : 'opacity-0'
         )}
       />
-    </>
+    </div>
   );
 };
 
