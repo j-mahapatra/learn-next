@@ -8,6 +8,7 @@ import VideoPlayer from '@/components/video-player';
 import CourseEnrollButton from '@/components/course-enroll-button';
 import { Separator } from '@/components/ui/separator';
 import TextEditor from '@/components/text-editor';
+import ChapterProgressButton from '@/components/chapter-progress-button';
 
 const ChapterIdPage = async ({
   params,
@@ -70,7 +71,12 @@ const ChapterIdPage = async ({
         <div className='flex flex-col p-2 sm:p-5 md:flex-row justify-between items-center'>
           <h2 className='text-2xl font-semibold mb-2'>{chapter.title}</h2>
           {purchase ? (
-            <>{/* TODO: Course Progress here */}</>
+            <ChapterProgressButton
+              courseId={params.courseId}
+              chapterId={params.chapterId}
+              nextChapterId={nextChapter?.id}
+              isCompleted={!!userProgress?.isCompleted}
+            />
           ) : (
             <CourseEnrollButton
               courseId={params.courseId}
