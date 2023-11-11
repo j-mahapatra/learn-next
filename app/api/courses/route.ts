@@ -1,13 +1,16 @@
-import { db } from '@/lib/database';
-import { auth } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
+import { auth } from '@clerk/nextjs';
+
+import { db } from '@/lib/database';
+import { isInstructor } from '@/lib/instructor';
 
 export async function POST(req: Request) {
   try {
     const { userId } = auth();
     const { title } = await req.json();
+    const isUserInstructor = isInstructor(userId);
 
-    if (!userId) {
+    if (!userId || !isUserInstructor) {
       return new NextResponse('Unauthorized Access', { status: 401 });
     }
 

@@ -1,7 +1,9 @@
-import { db } from '@/lib/database';
-import { auth } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
+import { auth } from '@clerk/nextjs';
 import Mux from '@mux/mux-node';
+
+import { db } from '@/lib/database';
+import { isInstructor } from '@/lib/instructor';
 
 const { Video } = new Mux(
   process.env.MUX_TOKEN_ID!,
@@ -15,8 +17,9 @@ export async function PATCH(
   try {
     const { userId } = auth();
     const reqData = await req.json();
+    const isUserInstructor = isInstructor(userId);
 
-    if (!userId) {
+    if (!userId || !isUserInstructor) {
       return new NextResponse('Unauthorized Access', { status: 401 });
     }
 

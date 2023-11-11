@@ -1,14 +1,16 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
+import { UserButton, useAuth } from '@clerk/nextjs';
 
-import { UserButton } from '@clerk/nextjs';
+import { isInstructor } from '@/lib/instructor';
 import { Button } from '@/components/ui/button';
 import SearchInput from '@/components/search-input';
 
 const NavbarRoutes = () => {
   const pathname = usePathname();
   const router = useRouter();
+  const { userId } = useAuth();
 
   const isInstructorPage = pathname?.startsWith('/instructor');
   const isCoursePage = pathname?.startsWith('/courses');
@@ -42,7 +44,7 @@ const NavbarRoutes = () => {
           >
             Student Mode
           </Button>
-        ) : (
+        ) : isInstructor(userId) ? (
           <Button
             variant='outline'
             size='sm'
@@ -50,7 +52,7 @@ const NavbarRoutes = () => {
           >
             Instructor Mode
           </Button>
-        )}
+        ) : null}
         <UserButton afterSignOutUrl='/' />
       </div>
     </>
