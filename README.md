@@ -1,34 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## LearnNext - An Online Learning Platform
 
-## Getting Started
+- A feature-rich online learning platform that allows users to explore and purchase, and learn from courses of their choice through videos.
+- Built using NextJs and powered by TypeScript for enhanced code quality and maintainability.
+- Utilizes Prisma along with MySQL for efficient database management.
+- Achieved a sleek and responsive design using shadcn/ui (Radix UI) and TailwindCSS for an optimal user interface.
+- Integrated MUX for seamless video streaming and Clerk for secure user authentication.
+- Employed Zustand for dynamic state management, enhancing the platform's scalability.
+- Implemented Stripe for smooth and secure payment processing, ensuring a comprehensive user experience.
+- Ensured type-safe user input and form schema validations using Zod and React Hook Form.
+- Implemented toast notifications, drag and drop feature, text editors, confetti animations and lots of other features to elevate user experience and engagement.
 
-First, run the development server:
+## Screenshots
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+|  |  |
+| - | - |
+| ![1](https://github.com/j-mahapatra/learn-next/assets/107102771/6d5ebb97-3dcf-4679-a70f-7f8adafb8a53) | ![2](https://github.com/j-mahapatra/learn-next/assets/107102771/11f03f5e-8749-4525-ae40-5e0b0ab75d97) |
+| ![3](https://github.com/j-mahapatra/learn-next/assets/107102771/347582f0-8ffc-494d-bc8c-a9a0cef37acb) | ![4](https://github.com/j-mahapatra/learn-next/assets/107102771/887f0283-5830-4c9c-9491-aeb0be7bc251) |
+| ![5](https://github.com/j-mahapatra/learn-next/assets/107102771/5cfc64bb-9359-4abf-97f5-5f459f7a886d) | ![6](https://github.com/j-mahapatra/learn-next/assets/107102771/ccffe1df-c678-4f10-a958-3c08d6883b6c) |
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY``` - ClerkJS environment variable
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```CLERK_SECRET_KEY``` - ClerkJS environment variable
 
-## Learn More
+```NEXT_PUBLIC_CLERK_SIGN_IN_URL``` - ```/sign-in```
 
-To learn more about Next.js, take a look at the following resources:
+```NEXT_PUBLIC_CLERK_SIGN_UP_URL``` - ```/sign-up```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL``` - ```/```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL``` - ```/```
 
-## Deploy on Vercel
+```DATABASE_URL``` - Database URL
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```UPLOADTHING_SECRET``` - UploadThing environment variable
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```UPLOADTHING_APP_ID``` - UploadThing environment variable
+
+```MUX_TOKEN_ID``` - MUX environment variable
+
+```MUX_TOKEN_SECRET``` - MUX environment variable
+
+```STRIPE_API_KEY``` - Stripe API Key
+
+```NEXT_PUBLIC_APP_URL``` - URL of the app
+
+```STRIPE_WEBHOOK_SECRET``` - Stripe webhook key
+
+```NEXT_PUBLIC_INSTRUCTOR_ID``` - userId of Admin (from Clerk)
+
+### Tech Used
+
+NextJS, TailwindCSS, Typescript, MySQL, Prisma
