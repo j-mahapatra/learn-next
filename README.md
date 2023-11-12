@@ -9,6 +9,7 @@
 - Implemented Stripe for smooth and secure payment processing, ensuring a comprehensive user experience.
 - Ensured type-safe user input and form schema validations using Zod and React Hook Form.
 - Implemented toast notifications, drag and drop feature, text editors, confetti animations and lots of other features to elevate user experience and engagement.
+- Fully featured admin dashboard for adding courses and related resources along with a sales analytics section.
 
 ## Screenshots
 
