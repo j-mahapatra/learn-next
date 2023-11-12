@@ -81,7 +81,9 @@ const ChaptersList = ({ onEdit, onReorder, items }: ChaptersListProps) => {
                     >
                       <GripVertical className='h-4 w-4 hover:text-primary' />
                     </div>
-                    {chapter.title}
+                    <p className='text-left text-ellipsis line-clamp-1'>
+                      {chapter.title}
+                    </p>
                     <div className='flex items-center ml-auto gap-x-2 pr-2'>
                       {chapter.isFree && <Badge>Free</Badge>}
                       <Badge
