@@ -41,15 +41,15 @@ const CourseSidebarItem = ({
         )}
         onClick={onChapterClick}
       >
-        <>
+        <div>
           <Icon
             className={cn(
               'h-4 w-4',
               isCompleted && 'text-ring group-hover:text-primary-foreground'
             )}
           />
-        </>
-        <p>{label}</p>
+        </div>
+        <p className='text-left'>{label}</p>
       </button>
       <div
         className={cn(
